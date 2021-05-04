@@ -1,6 +1,7 @@
 package com.example.chat
 
-data class Message (val message: String, val author: String?, val time: String) {
+data class Message (val message: String, val author: String?, val time: String)
+{
     companion object {
         fun from(map: HashMap<String, String>) = object {
             val author by map
