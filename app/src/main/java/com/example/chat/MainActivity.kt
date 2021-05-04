@@ -2,6 +2,7 @@ package com.example.chat
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.LocaleList
@@ -14,6 +15,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -89,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         rcMessageList.adapter = MyAdapter(messages)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun addMessage() {
         val formatter: DateTimeFormatter = DateTimeFormatter. ofPattern("dd.MM.yyyy HH:mm")
         val newMessage: Message = Message(edMessage.text.toString(), currentUser?.email.toString(),formatter.format(LocalDateTime.now()))
